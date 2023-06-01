@@ -17,7 +17,6 @@ const App = () => {
 
       // Request a signed URL from the backend
       const response = await axios.post('http://localhost:4000/signed-url', {
-        // params: { fileName, contentType },
         data: {
           fileName,
           contentType
@@ -30,7 +29,6 @@ const App = () => {
       await axios.put(url, file, {
         headers: {
           "Content-Type": contentType,
-          // 'x-goog-resumable': 'start',
         },
       });
 
@@ -39,25 +37,6 @@ const App = () => {
       console.error('Error uploading file:', error);
     }
   };
-
-
-
-
-  // const handleFileUpload = () => {
-  //   if (selectedFile) {
-  //     const formData = new FormData();
-  //     formData.append('file', selectedFile);
-
-  //     axios
-  //       .post('http://localhost:4000/upload', formData)
-  //       .then((response) => {
-  //         console.log(response.data.message);
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error uploading file:', error);
-  //       });
-  //   }
-  // };
 
   return (
     <div>
